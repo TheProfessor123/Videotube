@@ -32,13 +32,13 @@ To run this project, you will need to add the following environment variables to
 Clone the project
 
 ```bash
-  git clone https://github.com/TheProfessor123/backend.git
+  git clone https://github.com/TheProfessor123/Videotube.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd backend
+  cd Videotube
 ```
 
 Install dependencies
