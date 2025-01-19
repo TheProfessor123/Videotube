@@ -1,117 +1,127 @@
+# Videotube Backend
 
-# Videotube (Backend Development In Progress)
+A robust backend implementation for a video-sharing platform built with Node.js, Express, and MongoDB. The platform provides comprehensive user management, secure authentication, and video handling capabilities.
 
-This project is a video-sharing platform designed to enable users to upload, stream, and interact with videos seamlessly. It features robust user authentication using JWT and password encryption for security, RESTful APIs for efficient data handling, and scalable video storage powered by Cloudinary. The platform supports functionalities such as user management, video uploads, likes, comments, and playlists, making it ideal for developers looking for a backend implementation of a modern video-sharing application or learning backend development concepts.
+## 🚀 Features
 
+- **User Management**
+  - Registration with avatar and cover image upload
+  - Login with username/email
+  - Password encryption using bcrypt
+  - Profile management and updates
+  - Watch history tracking
 
-## Environment Variables
+- **Authentication & Security**
+  - JWT-based authentication
+  - Access and refresh token mechanism
+  - Secure cookie handling
+  - Protected routes with middleware
 
-To run this project, you will need to add the following environment variables to your .env file
+- **File Handling**
+  - Image upload support (avatar, cover image)
+  - Cloudinary integration for media storage
+  - Multer middleware for file uploads
+  - Temporary file cleanup
 
-`PORT`
+- **API Features**
+  - RESTful architecture
+  - Error handling with custom ApiError class
+  - Standardized responses with ApiResponse
+  - Async operation handling
+  - MongoDB aggregation pipelines
 
-`MONGODB_URI`
+## 🛠️ Tech Stack
 
-`CORS_ORIGIN`
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT for authentication
+- Cloudinary for media storage
+- Multer for file uploads
+- CORS enabled
+- Cookie Parser
 
-`ACCESS_TOKEN_SECRET`
+## 📊 API Endpoints
 
-`ACCESS_TOKEN_EXPIRY`
-
-`REFRESH_TOKEN_SECRET`
-
-`REFRESH_TOKEN_EXPIRY`
-
-`CLOUDINARY_CLOUD_NAME`
-
-`CLOUDINARY_API_KEY`
-
-`CLOUDINARY_API_SECRET`
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/TheProfessor123/Videotube.git
-```
-
-Go to the project directory
-
-```bash
-  cd Videotube
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run dev
-```
-
-
-## API Reference
-
-#### Register User
-
+### User Management
 ```http
-  POST http://localhost:PORT/api/v1/users/register
+POST /api/v1/users/register
+POST /api/v1/users/login
+POST /api/v1/users/logout
+POST /api/v1/users/refresh-token
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `fullName` | `string` | **Required**. Your Full Name |
-| `email` | `string` | **Required**. Your Email ID |
-| `username` | `string` |**Required**. Your User Name |
-| `password` | `string` |**Required**. Your Password |
-| `avatar` | `string` | **Required**. Your Avatar Path |
-| `coverImage` | `string` | Your Cover Image Path |
-
-#### Login User
-
+### Profile Management
 ```http
-  POST http://localhost:PORT/api/v1/users/login
+POST /api/v1/users/change-password
+GET /api/v1/users/current-user
+PATCH /api/v1/users/update-account
+PATCH /api/v1/users/avatar
+PATCH /api/v1/users/cover-image
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `username` | `string` |**Required**. Your User Name |
-| `email` | `string` | **Required**. Your Email ID |
-| `password` | `string` |**Required**. Your Password |
-
-#### Logout User
-
+### Channel & History
 ```http
-  POST http://localhost:PORT/api/v1/users/logout
+GET /api/v1/users/c/:username
+GET /api/v1/users/history
 ```
 
-Status Code: 200 
+## 🚀 Getting Started
 
-Message: "User Logged Out Successfully"
-
-#### Referesh Access Token
-
-```http
-  POST http://localhost:PORT/api/v1/users/refresh-token
+1. Clone the repository:
+```bash
+git clone https://github.com/TheProfessor123/Videotube.git
 ```
 
-Status Code: 200
+2. Install dependencies:
+```bash
+cd Videotube
+npm install
+```
 
-Message: "Access Token Refreshed Successfully"
-## Features
+3. Set up environment variables in `.env`:
+```env
+PORT=8000
+MONGODB_URI=your_mongodb_uri
+CORS_ORIGIN=your_frontend_origin
+ACCESS_TOKEN_SECRET=your_access_token_secret
+ACCESS_TOKEN_EXPIRY=1d
+REFRESH_TOKEN_SECRET=your_refresh_token_secret
+REFRESH_TOKEN_EXPIRY=10d
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+```
 
-- Create User, Login and Logout
-- Refresh Access Token
-- Change Password
-- Update User Account Details (Full Name, Email ID, Avatar, Cover Image)
+4. Start the development server:
+```bash
+npm run dev
+```
 
+## 📝 Project Structure
 
-## 🚀 About Author
-I'm a passionate Information Technology student at Kalinga Institute of Industrial Technology with a strong interest in software development, machine learning, and backend technologies. Currently pursuing my B.Tech with a CGPA of 8.34, I'm actively expanding my technical skills and building innovative projects.
+```
+src/
+├── app.js          # Express app setup
+├── constants.js    # Global constants
+├── controllers/    # Request handlers
+├── db/            # Database connection
+├── middlewares/   # Custom middlewares
+├── models/        # Mongoose models
+├── routes/        # API routes
+└── utils/         # Helper functions
+```
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/TheProfessor123)
+## 🤝 Contributing
 
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 👤 Author
+
+**Chhagan Ram Choudhary**
+- Student at Kalinga Institute of Industrial Technology
+- CGPA: 8.38
+- Passionate about software development and backend technologies
+
+[![GitHub](https://img.shields.io/badge/GitHub-TheProfessor123-black?style=for-the-badge&logo=github)](https://github.com/TheProfessor123)
+```
