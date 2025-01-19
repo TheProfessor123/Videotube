@@ -124,4 +124,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - Passionate about software development and backend technologies
 
 [![GitHub](https://img.shields.io/badge/GitHub-TheProfessor123-black?style=for-the-badge&logo=github)](https://github.com/TheProfessor123)
-```
